@@ -1,8 +1,8 @@
 # ポケモン対戦AIを研究する
 
-第1〜4章を収録した複数ページHTML教科書。左側に階層型ナビゲーション、右側にページ内目次、数式はMathMLで表示します。
+第1〜7章を収録した複数ページHTML教科書。左側に階層型ナビゲーション、右側にページ内目次、数式はMathMLで表示します。
 
-- 閲覧予定URL：https://k-toyoizumi.github.io/PokemonVGC-AI-textbook/
+- 閲覧URL：https://k-toyoizumi.github.io/PokemonVGC-AI-textbook/
 - `textbook/source/`：編集用Quartoソース。本文の正本。
 - `textbook/index.html`、`textbook/chapters/`：公開用HTML。
 - `textbook/scripts/render_preview.py`：現行のオフラインHTML生成器。
@@ -19,3 +19,4 @@
 ## 編集方針
 
 ポケモンAI全般を俯瞰し、研究結果を批判的に読めることを目標とする。一般数学の復習は省き、ゲーム理論・強化学習の基礎を厚くする。数式→直感・具体例→論文で説明し、コード・疑似コードは原則不要。1レッスン45〜60分を目安に、概要は簡潔に、理解の分かれ目は詳しく説明する。
+

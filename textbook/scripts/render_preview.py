@@ -9,7 +9,7 @@ import base64, html, re, shutil, subprocess, sys
 ROOT=Path(__file__).resolve().parent.parent
 BOOK=ROOT/'source'
 OUT=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT
-CHAPTERS=[BOOK/'index.qmd', *(BOOK/'chapters'/p for p in ('chapter01.qmd','chapter02.qmd','chapter03.qmd','chapter04.qmd'))]
+CHAPTERS=[BOOK/'index.qmd', *(BOOK/'chapters'/p for p in ('chapter01.qmd','chapter02.qmd','chapter03.qmd','chapter04.qmd','chapter05.qmd','chapter06.qmd','chapter07.qmd'))]
 if not shutil.which('pandoc'):
     sys.exit('Pandoc CLI is required for offline preview; Quarto build is preferred.')
 
@@ -30,7 +30,7 @@ for chapter_number,soup in enumerate(pages):
             if m:
                 tcount+=1;labels[m.group(1)]=(f'表{chapter_number}.{tcount}',chapter_number)
 
-chapter_titles=['はじめに','研究の見取り図','ベンチマークの仕様を読む','代表的な研究資産','勝率と評価結果をどう読むか']
+chapter_titles=['はじめに','研究の見取り図','ベンチマークの仕様を読む','代表的な研究資産','勝率と評価結果をどう読むか','対戦を数学の言葉で表す','ゲーム理論と混合戦略','探索と不完全情報']
 css='''
 .chapter-group>summary{cursor:pointer;display:list-item;margin-left:14px}.chapter-group>summary .side-link{display:inline-block;width:85%;vertical-align:middle}.section-link{display:block;margin-left:27px;padding:5px 8px;font-size:12px;color:#526d74;text-decoration:none;line-height:1.6}.section-link:hover{background:#eaf3f2}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.cards>div{border:1px solid #d4e0df;border-radius:8px;padding:15px;background:#f5f9f7}.concept{margin:25px 0}.math{font-family:math}.math.display{display:block;overflow-x:auto;max-width:100%;padding:15px 4px}blockquote{margin:20px 0;padding:17px;border-left:4px solid #267e75;background:#edf6f2}.chapter-nav{display:flex;justify-content:space-between;gap:20px}body{overflow-wrap:anywhere}
 
@@ -95,7 +95,7 @@ for idx,(path,soup) in enumerate(zip(CHAPTERS,pages)):
         sections.append((h.get_text(' ',strip=True),h['id'],h.name))
     toc=''.join(f'<a class="toc-link {typ}" href="#{html.escape(anchor,quote=True)}">{html.escape(name)}</a>' for name,anchor,typ in sections)
     nav=f'<a class="side-link" {"aria-current=page" if idx==0 else ""} href="{link(idx,0)}">はじめに</a>'
-    for group,indices in [('研究の見取り図',[1]),('ベンチマークを理解する',[2,3,4])]:
+    for group,indices in [('研究の見取り図',[1]),('ベンチマークを理解する',[2,3,4]),('対戦の理論と探索',[5,6,7])]:
         nav+=f'<details class="group" {"open" if idx in indices or idx==0 else ""}><summary>{group}</summary>'
         for j in indices:
             subs=''.join(f'<a class="section-link" href="{link(idx,j)}#{html.escape(h.get("id",""),quote=True)}">{html.escape(h.get_text(" ",strip=True))}</a>' for h in pages[j].select('h2') if h.get('id'))
