@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: _book
+lang: ja
+book:
+  title: ポケモン対戦AIを研究する
+  page-navigation: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+    pinned: true
+  chapters:
+    - index.qmd
+    - part: 研究の見取り図
+      chapters:
+        - chapters/chapter01.qmd
+    - part: ベンチマークを理解する
+      chapters:
+        - chapters/chapter02.qmd
+        - chapters/chapter03.qmd
+        - chapters/chapter04.qmd
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: このページ
+    toc-depth: 3
+    html-math-method: mathml
