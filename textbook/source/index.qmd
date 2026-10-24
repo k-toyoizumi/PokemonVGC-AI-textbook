@@ -1,5 +1,8 @@
 # ポケモン対戦AIを研究する
 
+**略称の読み方**：人工知能（Artificial Intelligence, AI）、コンピュータビジョン（Computer Vision, CV）、ポケモンの公式ビデオゲーム大会（Video Game Championships, VGC）。VGC-BenchはVGCを対象とするベンチマークの固有名です。
+
+
 **第1〜4章｜研究の全体像とベンチマーク**
 
 CV・PyTorchの経験を土台に、ポケモンAIの手法と研究結果を読み解く日本語教科書です。数式・図解・対戦例・解説付き問題で学びます。

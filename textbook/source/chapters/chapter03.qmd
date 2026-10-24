@@ -1,8 +1,13 @@
 # 第3章　代表的な研究資産を位置づける
 
+**略称の読み方**：人工知能（Artificial Intelligence, AI）、コンピュータビジョン（Computer Vision, CV）、ポケモンの公式ビデオゲーム大会（Video Game Championships, VGC）。VGC-BenchはVGCを対象とするベンチマークの固有名です。
+
+
 > **結論**　Showdown、poke-env、VGC-Bench、対戦ログ、公開モデルは、同じ種類の資産ではありません。役割と版を分けて読むと、何を再利用し、何を自分で検証すべきかが分かります。
 
 **学習目標**：研究資産の依存関係を説明する、VGC-Benchの評価軸を理解する、論文版と現行データを区別する。資料確認日：2026-10-24。本章は網羅的なランキングではなく、最初に読むための選定です。
+
+**本章で使う表記**：Application Programming Interface（API：ソフトウェア同士の接続仕様）、Identifier（ID：識別子）、README（ソフトウェアの概要・利用手順を示す案内文書）、fork（既存コードから分岐した派生版）。v3はversion 3（第3版）を表します。
 
 ## 3.1 対戦を動かす層と、研究する層
 
@@ -36,7 +41,7 @@ VGC-Benchが扱う重要な問いは、特定のチームに習熟すること�
 
 $$\mathcal C_{\mathrm{seen}}=\bigcap_{k=1}^{K}\mathcal C_k.$$
 
-$K$は比較モデル数、$\mathcal C$はチームの集合です。未知チームの評価では、全モデルの訓練チームの和集合と評価集合が重ならないようにします。
+$k$はモデル番号、$K$は比較モデル数、$\mathcal C$はチームの集合です。添字seenは既知、unseenは未見を意味します。$\bigcap$は全モデルの集合の共通部分、$\bigcup$は和集合、$\cap$は共通部分、$\varnothing$は空集合を表します。未知チームの評価では、全モデルの訓練チームの和集合と評価集合が重ならないようにします。
 
 $$\mathcal C_{\mathrm{unseen}}\cap\left(\bigcup_{k=1}^{K}\mathcal C_k\right)=\varnothing.$$
 
@@ -62,12 +67,14 @@ VGC-Benchでは、既知チームの性能、未知チームへの汎化、固�
 
 | 略称 | 内容 | 何を比較するためか |
 |---|---|---|
-| R / MBP / SH | ランダム／基礎威力優先／簡単なヒューリスティック | 学習なしの判断基準 |
-| BC | 模倣学習 | 人間ログから得られる初期方策 |
-| SP | 自己対戦 | 現在の自分を中心とした学習 |
-| FP | 過去方策を使う学習 | 相手集団を保持する効果 |
-| DO | double oracle型の学習 | 相手の選択分布をゲームとして扱う効果 |
-| BCSPなど | BC初期化と各学習法の組合せ | 事前学習を加える効果 |
+| Random player（R）／Max Base Power player（MBP）／Simple Heuristics player（SH） | ランダム／基礎威力優先／簡単な経験則 | 学習なしの判断基準 |
+| Behavior Cloning（BC） | 行動模倣 | 人間ログから得られる初期方策 |
+| Self-Play（SP） | 自己対戦 | 現在の自分を中心とした学習 |
+| Fictitious Play（FP：仮想プレイ） | 過去方策を使う学習 | 相手集団を保持する効果 |
+| Double Oracle（DO） | 双方の応答方策を追加する学習 | 相手の選択分布をゲームとして扱う効果 |
+| BCSP／BCFP／BCDO | BCで初期化したSP／FP／DO。略称を連結した表記 | 事前学習を加える効果 |
+
+Proximal Policy Optimization（PPO）は、更新前後の方策の変化を抑えながら方策を改善する強化学習手法です。Large Language Model（LLM：大規模言語モデル）を使う比較相手もあります。
 
 表は公式READMEと論文で用いられる分類に基づく概要です。[C,D] 一般的なFP・DOの理論と、深層学習で近似した実装は区別します。特に、PPOは方策を更新する方法、SP・FP・DOは主として学習相手をどう構成するかに関係します。「PPOと自己対戦のどちらを使うか」という二択ではありません。
 
