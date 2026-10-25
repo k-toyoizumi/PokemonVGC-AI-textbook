@@ -179,7 +179,7 @@ PokéChampは、大規模言語モデル（Large Language Model：LLM）を、�
 
 ## 7.9 まとめと一次資料
 
-探索では、乱数の期待値、相手モデルの平均、最悪応答を分けます。同時行動の混合戦略と、相手に手を見せる純粋な木は同じではありません。モンテカルロ木探索は試行の配分を工夫しますが、情報条件とモデルの誤りまで自動修正しません。次の第8章では、データから方策を学ぶ模倣学習へ進みます（未執筆）。
+探索では、乱数の期待値、相手モデルの平均、最悪応答を分けます。同時行動の混合戦略と、相手に手を見せる純粋な木は同じではありません。モンテカルロ木探索は試行の配分を工夫しますが、情報条件とモデルの誤りまで自動修正しません。次の第8章では、データから方策を学ぶ模倣学習へ進みます。
 
 1. [Browneほか：A Survey of Monte Carlo Tree Search Methods](https://repository.essex.ac.uk/4117/) — 探索の基本工程と拡張の概観。
 2. [Kocsis & Szepesvári：Bandit Based Monte-Carlo Planning](https://aima.cs.berkeley.edu/~russell/classes/cs294/s11/readings/Kocsis%2BSzepesvari%3A2006.pdf) — 木の探索と利用の配分の基礎論文。保証の仮定と、実対戦への適用は区別。
@@ -188,3 +188,4 @@ PokéChampは、大規模言語モデル（Large Language Model：LLM）を、�
 5. [Karten, Nguyen & Jin：PokéChamp](https://proceedings.mlr.press/v267/karten25a.html) — 言語モデルによる候補生成・相手モデル・価値推定を探索へ組み込むポケモン研究。本章の利得表・探索数・スコア例は同論文の実験結果ではない。
 
 6. [Iharaほか：Implementation and Evaluation of Information Set Monte Carlo Tree Search for Pokémon](https://eprints.lib.hokudai.ac.jp/repo/huscap/all/72345/) — 2018年のポケモンへの適用研究。リンク先は著者最終稿と書誌情報。
+

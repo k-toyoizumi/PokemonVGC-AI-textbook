@@ -24,6 +24,10 @@ book:
         - chapters/chapter05.qmd
         - chapters/chapter06.qmd
         - chapters/chapter07.qmd
+    - part: 学習する方策
+      chapters:
+        - chapters/chapter08.qmd
+        - chapters/chapter09.qmd
 format:
   html:
     toc: true
@@ -31,3 +35,4 @@ format:
     toc-title: このページ
     toc-depth: 3
     html-math-method: mathml
+

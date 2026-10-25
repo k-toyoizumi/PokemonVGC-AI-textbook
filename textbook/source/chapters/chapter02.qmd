@@ -112,3 +112,4 @@ $$\mathcal B_{\mathrm{train}}\cap\mathcal B_{\mathrm{test}}=\varnothing$$
 ベンチマークは6項目で読みます。固定データの行動予測と実際の対戦は分布が異なります。分割と資源の条件は、主張したい能力に合わせて確認します。次章では、この読み方を具体的な研究資産へ適用します。
 
 本章の数値例と仕様表は教材用の設計例です。具体的な評価の一次資料は[VGC-Bench改訂版・第4節](https://arxiv.org/html/2506.10326v3)を参照してください。方策・行動分布の背景は[Sutton & Barto](http://incompleteideas.net/book/the-book-2nd.html)が参考になります。
+

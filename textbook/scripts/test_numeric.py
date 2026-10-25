@@ -22,3 +22,13 @@ hidden=np.array([[1,0],[0,1]])
 assert np.max(np.array([.5,.5])@hidden)==.5
 assert np.mean(np.max(hidden,axis=1))==1
 print('PASS: Bayes, branching, matrix equilibrium by linear programs, response values, UCT scores, hidden-information example')
+
+
+assert math.isclose(-math.log(.8),.2231435513142097)
+assert math.isclose(.98**50,.36416968008711675)
+assert math.isclose(.25*.8+.75*.4,.5)
+assert math.isclose(.1+.9*.7-.5,.23)
+assert math.isclose(.2+.9*.8*(-.1),.128)
+def clipped(r,a,e=.2):return min(r*a,max(1-e,min(1+e,r))*a)
+assert np.allclose([clipped(1.5,2),clipped(.5,-2),clipped(.5,2),clipped(1.5,-2)],[2.4,-1.6,1,-3])
+print('PASS: BC loss, sequential agreement, value, TD, GAE and both signs of PPO clipping')

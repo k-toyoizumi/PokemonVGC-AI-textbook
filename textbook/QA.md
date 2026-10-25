@@ -17,3 +17,15 @@
 - NOT RUN：Quarto正式ビルド（CLI未導入）。
 
 再実行：`python textbook/scripts/render_preview.py`、`python textbook/scripts/validate.py`、`python textbook/scripts/test_numeric.py`。数値検証にはNumPyとSciPy、HTML検証にはBeautiful Soup、生成にはPandocが必要。
+
+
+## 2026-10-25：表6.1と第8〜9章
+
+- PASS：表6.1の行・列の主体を明記。対象の表だけ全幅・固定最小幅を解除するCSSを生成器へ追加。
+- PASS：10ページ、14表、5図、2050件の内部リンク、MathMLの静的検査。
+- PASS：行動模倣損失、50回の連続一致、価値、時間差分、一般化アドバンテージ推定、クリッピングの正負の数値例。
+- PASS：PandocのHTML再生成。
+- NOT RUN：ブラウザ実表示・操作、390pxの実測列幅。
+- NOT RUN：Quarto正式ビルド。現行公開はPandocプレビュー。
+
+Skill向け改善提案：docs/2026-10-25_1.md。第8〜9章は模式図2枚・表2点・解説付き9問を追加した。

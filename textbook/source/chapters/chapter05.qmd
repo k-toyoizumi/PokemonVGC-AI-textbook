@@ -143,3 +143,4 @@ VGC-Benchのようなポケモンの公式ビデオゲーム大会（Video Game 
 1. [Sutton & Barto：Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html) — 第3章の状態・報酬・マルコフ性。一般的な意思決定の基礎資料。
 2. [Kaelbling, Littman & Cassandra：Planning and Acting in Partially Observable Stochastic Domains](https://cs.brown.edu/research/pubs/techreports/reports/CS-96-08.html) — 部分観測、信念状態、近似計画の基礎。リンク先は1996年の技術報告で、1998年の雑誌版とは区別。
 3. [VGC-Bench公式実装](https://github.com/cameronangliss/vgc-bench) — ポケモンへの接続例。各入力・行動・報酬の実装は固定版で読む。本章の二仮説例・候補数・模式図は教材独自の説明例で、同研究の実験値ではない。
+

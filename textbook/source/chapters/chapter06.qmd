@@ -12,7 +12,7 @@
 
 自分から見た継続局面の価値を、@tbl-payoff-main のように置きます。数値の単位は**教材用の評価点**です。正が自分に有利、負が不利、相手はその符号を逆にした値を得るとします。
 
-| 自分の行動 ＼ 相手の行動 | 防御 | 仕掛け |
+| 自分の行動 | 相手：防御 | 相手：仕掛け |
 |---|---:|---:|
 | 攻撃 | −1 | 2 |
 | 待機 | 1 | −2 |
@@ -149,3 +149,4 @@ $$\max_{x\in\Delta_m}\min_{y\in\Delta_n}x^\mathsf T A y$$
 
 1. [Carnegie Mellon University：Game Theory講義ノート](https://www.cs.cmu.edu/~15281-s25/coursenotes/gametheory/index.html) — 標準形、混合戦略、最適応答、ナッシュ均衡、二人ゼロ和のミニマックスの定義。
 2. [VGC-Bench公式実装](https://github.com/cameronangliss/vgc-bench) — 自己対戦・仮想プレイ・Double Oracleなどへの接続。局面の利得表と学習済み方策の対戦行列は異なる対象。本章の表・図・導出は教材独自の架空例。
+

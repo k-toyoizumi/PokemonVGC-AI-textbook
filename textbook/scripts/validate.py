@@ -4,7 +4,7 @@ from urllib.parse import urlsplit, unquote
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parent.parent
 pages={p.resolve():BeautifulSoup(p.read_text(), 'html.parser') for p in [ROOT/'index.html',*sorted((ROOT/'chapters').glob('*.html'))]}
-assert len(pages)==8, 'Expected landing page plus chapters 1–7'
+assert len(pages)==10, 'Expected landing page plus chapters 1–9'
 links=tables=figures=0
 for path,soup in pages.items():
  ids=[e['id'] for e in soup.select('[id]')]
@@ -33,7 +33,7 @@ for path,soup in pages.items():
   links+=1
  # All seven chapter destinations exist in the sidebar on every page.
  side=soup.select_one('aside.sidebar')
- assert len(side.select('a.side-link'))==8,(path,'missing chapter links')
+ assert len(side.select('a.side-link'))==10,(path,'missing chapter links')
  assert soup.select_one('.chapter-nav') and soup.select_one('aside.toc')
 for n in [5,6,7]:
  p=(ROOT/f'chapters/chapter{n:02}.html').resolve();s=pages[p]
@@ -41,3 +41,4 @@ for n in [5,6,7]:
  assert len(s.select('article math'))>=10,(n,'math')
  assert s.select_one('article figure figcaption').get_text().startswith(f'図{n}.1：')
 print(f'PASS: {len(pages)} pages, {tables} tables, {figures} figures, {links} internal links; MathML/captions/navigation')
+
